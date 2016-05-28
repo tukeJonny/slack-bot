@@ -19,7 +19,6 @@ app = Flask(__name__)
 
 error_msg = "Fuck you! INVALID OPERATION!!!!!!! :rage:"
 
-#おそらく、検証されていないSSL Handshakeを用いた通信を有効にする
 if hasattr(ssl, '_create_unverified_context'):
 	ssl._create_default_https_context = ssl._create_unverified_context
 

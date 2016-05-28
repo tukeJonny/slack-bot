@@ -77,17 +77,16 @@ def make_msg(index, entry, separator='-'):
 	
 	ctf = ""
 	ctf += "({index})\n".format(index=index)
-	ctf += ">タイトル: *{title}*\n".format(title=explain_dict['Name'])#entry['title_detail']['value'])
-	ctf += ">形式: *{format}*\n".format(format=explain_dict['Format'])#entry['format_text'])
+	ctf += ">タイトル: *{title}*\n".format(title=explain_dict['Name'])
+	ctf += ">形式: *{format}*\n".format(format=explain_dict['Format'])
 	ctf += ">日時: *{start} ~ {end}* {add2calendar}\n".format(start=get_datetime(entry['start_date']), end=get_datetime(entry['finish_date']), add2calendar=explain_dict['Date'].split('UTC')[1])
-	if 'Location' in explain_dict: #entry['onsite'] == "True":
-		ctf += ">場所: *{location}*\n".format(location=explain_dict['Location'])#entry['location'])
+	if 'Location' in explain_dict:
+		ctf += ">場所: *{location}*\n".format(location=explain_dict['Location'])
 	ctf += ">公式URL: *{official_url}*\n".format(official_url=explain_dict['Offical URL'])
 	ctf += ">レート: *{rate}*\n".format(rate=explain_dict['Rating weight'])
 	if 'Event organizers' in explain_dict:
 		ctf += ">イベント主催者たち: \n>*{organizers}*\n".format(organizers=explain_dict['Event organizers'])
 	ctf += "\n"
-	#ctf += ">説明: \n{summary}\n\n".format(summary=summary)
 	
 	ctf += ">関連リンク:\n"
 	for idx, link in enumerate(entry['links']):
